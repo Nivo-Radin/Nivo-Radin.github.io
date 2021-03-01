@@ -604,5 +604,578 @@ define({ "api": [
     },
     "filename": "src/app/controller/product.controller.ts",
     "groupTitle": "Product"
+  },
+  {
+    "type": "POST",
+    "url": "/purchase-invoice",
+    "title": "Create Purchase Invoice",
+    "name": "CreatePurchaseInvoice",
+    "group": "PurchaseInvoice",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "items",
+            "description": "<p>List of products</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "items.id",
+            "description": "<p>Product id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "items.discount",
+            "description": "<p>Discount of product on the invoice</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "items.price",
+            "description": "<p>Product price</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "items.quantity",
+            "description": "<p>Product quantity</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "items.taxYear",
+            "description": "<p>Product tax year</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "chequeIds",
+            "description": "<p>List of related cheques to this invoice</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customerId",
+            "description": "<p>Customer related to the invoice, possible to be <code>customer</code> object, as a new customer</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "customer",
+            "description": "<p>Customer related to the invoice, if customerId is not available</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.name",
+            "description": "<p>Customer name *</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "customer.legal",
+            "description": "<p>Is customer legal or not? حقیقی یا حقوقی</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.nationalId",
+            "description": "<p>Customer national id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.economicId",
+            "description": "<p>Customer economicId</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.registrationId",
+            "description": "<p>Customer business registration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.mobile",
+            "description": "<p>Customer mobile</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.email",
+            "description": "<p>Customer email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.address",
+            "description": "<p>Customer address</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.description",
+            "description": "<p>Customer description</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer.tags",
+            "description": "<p>List of customer tags</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Invoice description</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "transactionIds",
+            "description": "<p>List of related transactions to this invoice</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timestamp",
+            "description": "<p>Invoice date as Unix timestamp</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "tags",
+            "description": "<p>List of invoice tags</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"acceptsOnlinePayment\": true,\n    \"items\": [\n        {\n            \"discount\": 500,\n            \"price\": 25000,\n            \"quantity\": 3,\n            \"id\": \"1009-1ef10a242cde40afb16883db0aeeb024\",\n            \"taxYear\": \"1397\"\n        }\n    ],\n    \"chequeIds\": [],\n    \"customerId\": \"1011-5bf64e86dbc44342a603a5108828e62e\",\n    \"description\": \"asd\",\n    \"paidAmount\": 0,\n    \"tagIds\": [\n        \"1014-d38a01f9039d49a4af93fe6b8bd932db\"\n    ],\n    \"timestamp\": 1612038600000,\n    \"transactionIds\": [\n        \"1013-acf8353e1cf74e16aee108047e595344\"\n    ],\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\t{\n\t\t\"message\": \"ok\",\n\t\t\"id\": \"1009-6506499e4ffe4700a8227c2cd4defa17\",\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/invoice.controller.ts",
+    "groupTitle": "PurchaseInvoice"
+  },
+  {
+    "type": "POST",
+    "url": "/sale-invoice",
+    "title": "Create Sale Invoice",
+    "name": "CreateSaleInvoice",
+    "group": "SaleInvoice",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "items",
+            "description": "<p>List of products</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "items.id",
+            "description": "<p>Product id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "items.discount",
+            "description": "<p>Discount of product on the invoice</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "items.price",
+            "description": "<p>Product price</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "items.quantity",
+            "description": "<p>Product quantity</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "items.taxYear",
+            "description": "<p>Product tax year</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "acceptsOnlinePayment",
+            "description": "<p>Does invoice support online payment?</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "chequeIds",
+            "description": "<p>List of related cheques to this invoice</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customerId",
+            "description": "<p>Customer related to the invoice, possible to be <code>customer</code> object, as a new customer</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "customer",
+            "description": "<p>Customer related to the invoice, if customerId is not available</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.name",
+            "description": "<p>Customer name *</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "customer.legal",
+            "description": "<p>Is customer legal or not? حقیقی یا حقوقی</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.nationalId",
+            "description": "<p>Customer national id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.economicId",
+            "description": "<p>Customer economicId</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.registrationId",
+            "description": "<p>Customer business registration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.mobile",
+            "description": "<p>Customer mobile</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.email",
+            "description": "<p>Customer email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.address",
+            "description": "<p>Customer address</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer.description",
+            "description": "<p>Customer description</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer.tags",
+            "description": "<p>List of customer tags</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Invoice description</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "format",
+            "description": "<p>Invoice format,  ['INFORMAL', 'OFFICIAL'], default is OFFICIAL</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "paidAmount",
+            "description": "<p>Invoice paid amount</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "transactionIds",
+            "description": "<p>List of related transactions to this invoice</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timestamp",
+            "description": "<p>Invoice date as Unix timestamp</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Invoice type ['DRAFT', 'NORMAL'], default is NORMAL</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "tags",
+            "description": "<p>List of invoice tags</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"acceptsOnlinePayment\": true,\n    \"items\": [\n        {\n            \"discount\": 500,\n            \"price\": 25000,\n            \"quantity\": 3,\n            \"id\": \"1009-1ef10a242cde40afb16883db0aeeb024\",\n            \"taxYear\": \"1397\"\n        }\n    ],\n    \"chequeIds\": [],\n    \"customerId\": \"1011-5bf64e86dbc44342a603a5108828e62e\",\n    \"description\": \"asd\",\n    \"format\": \"OFFICIAL\",\n    \"paidAmount\": 0,\n    \"paymentStatus\": \"COMPLETED\",\n    \"percentOff\": 2,\n    \"readOnly\": false,\n    \"signatureVisibility\": true,\n    \"tagIds\": [\n        \"1014-d38a01f9039d49a4af93fe6b8bd932db\"\n    ],\n    \"timestamp\": 1612038600000,\n    \"transactionIds\": [\n        \"1013-acf8353e1cf74e16aee108047e595344\"\n    ],\n    \"type\": \"NORMAL\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\t{\n\t\t\"message\": \"ok\",\n\t\t\"id\": \"1009-6506499e4ffe4700a8227c2cd4defa17\",\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/invoice.controller.ts",
+    "groupTitle": "SaleInvoice"
+  },
+  {
+    "type": "GET",
+    "url": "/sale-invoice",
+    "title": "Get sale invoices",
+    "name": "GetSaleInvoices",
+    "group": "SaleInvoice",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"invoices\": [\n        {\n            \"acceptsOnlinePayment\": true,\n            \"chequeIds\": [],\n            \"code\": \"NSI-1003\",\n            \"createdAt\": 1613216820350,\n            \"dateEnUS\": \"2021/01/31\",\n            \"dateFaIR\": \"1399/11/12\",\n            \"description\": \"asd\",\n            \"format\": \"OFFICIAL\",\n            \"paidAmount\": 0,\n            \"paymentGatewayIds\": [],\n            \"paymentStatus\": \"COMPLETED\",\n            \"percentOff\": 2,\n            \"readOnly\": false,\n            \"scheme\": 4,\n            \"signatureVisibility\": true,\n            \"timestamp\": 1612038600000,\n            \"type\": \"NORMAL\",\n            \"updatedAt\": 1614172401347,\n            \"_id\": \"1012-18996fab88d54aeda0e1d2b640806b33\",\n            \"transactions\": [\n                {\n                    \"amount\": 150000,\n                    \"date\": \"1399/12/06\",\n                    \"type\": \"INCOME\"\n                }\n            ],\n            \"items\": [\n                {\n                    \"id\": \"1009-1ef10a242cde40afb16883db0aeeb024\",\n                    \"name\": \"sample_product\",\n                    \"barcodes\": [\n                        \"123\",\n                        \"321\"\n                    ],\n                    \"code\": \"sample_code\",\n                    \"image\": \"data:image/jpeg;base64...\",\n                    \"price\": 27250,\n                    \"tax\": 0.09,\n                    \"type\": \"SERVICE\",\n                    \"category\": \"sample_category\"\n                }\n            ],\n            \"customer\": \"sample customer\"\n        },\n\t  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/invoice.controller.ts",
+    "groupTitle": "SaleInvoice"
+  },
+  {
+    "type": "POST",
+    "url": "/transaction",
+    "title": "Create Transaction",
+    "name": "CreateTransaction",
+    "group": "Transaction",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "amount",
+            "description": "<ul> <li>Transaction amount</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customerId",
+            "description": "<p>Customer id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reasonId",
+            "description": "<p>Reason of transaction ['PURCHASE', 'SALE'], default is PURCHASE</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<ul> <li>Transaction type ['INCOME', 'EXPENSE', 'TRANSFER']</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timestamp",
+            "description": "<p>Invoice date as Unix timestamp</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "tags",
+            "description": "<p>List of invoice tags</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"customerId\": \"1011-5bf64e86dbc44342a603a5108828e62e\",\n    \"description\": \"sample_description\",\n    \"reasonId\": \"SALE\",\n    \"type\": \"INCOME\",\n    \"amount\": 250000,\n    \"tagIds\": [\n        \"1014-d38a01f9039d49a4af93fe6b8bd932db\"\n    ],\n    \"timestamp\": 1612038600000\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\t{\n\t\t\"message\": \"ok\",\n\t\t\"id\": \"1009-6506499e4ffe4700a8227c2cd4defa17\",\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/transaction.controller.ts",
+    "groupTitle": "Transaction"
+  },
+  {
+    "type": "GET",
+    "url": "/transaction",
+    "title": "Get Transactions",
+    "name": "GetTransaction",
+    "group": "Transaction",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"transactions\": [\n        {\n            \"_id\": \"1013-03d4dd5703a54ab68965a1e61b100c19\",\n            \"amount\": 12121212,\n            \"costsFee\": 0,\n            \"createdAt\": 1614414192546,\n            \"dateEnUS\": \"2021/02/04\",\n            \"dateFaIR\": \"1399/11/16\",\n            \"description\": \"\",\n            \"reasonId\": \"\",\n            \"timestamp\": 1612384200000,\n            \"type\": \"INCOME\",\n            \"updatedAt\": 1614414192546,\n            \"customer\": {\n                \"id\": \"1011-da4306b79ef0489b8fe50c0793fc4e68\",\n                \"name\": \"sadf\",\n                \"legal\": false,\n                \"nationalId\": \"\",\n                \"economicId\": \"\",\n                \"registrationId\": \"\",\n                \"mobile\": \"\",\n                \"email\": \"\",\n                \"address\": \"\",\n                \"description\": \"\"\n            },\n            \"tags\": [\n                \"t2\",\n                \"t1\"\n            ]\n        },\n\t]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/transaction.controller.ts",
+    "groupTitle": "Transaction"
   }
 ] });
