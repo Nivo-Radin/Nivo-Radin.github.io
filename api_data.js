@@ -1185,6 +1185,11 @@ define({ "api": [
     "name": "LoginUser",
     "group": "User",
     "version": "1.0.0",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/login"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1259,6 +1264,11 @@ define({ "api": [
     "name": "RegisterUSer",
     "group": "User",
     "version": "1.0.0",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/register"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
