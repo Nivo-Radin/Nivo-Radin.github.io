@@ -1235,11 +1235,6 @@ define({ "api": [
     "name": "LoginUser",
     "group": "User",
     "version": "1.0.0",
-    "sampleRequest": [
-      {
-        "url": "https://bfm.nivoapp.com/api/v1/login"
-      }
-    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1299,13 +1294,18 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"result\": {\n        \"user\": {\n            \"entityType\": \"user\",\n            \"username\": \"4a1f0e363b7f4ab5a69c146e5421c3f6\",\n            \"phone\": \"9031212123\",\n            \"initialized\": true,\n            \"createdAt\": 1604596057690,\n            \"updatedAt\": 1614877730240\n        },\n        \"profile\": {\n            \"_id\": \"0003-1d123aeb5e1f4c56935df04da01033a2\",\n            \"entityType\": \"profile\",\n            \"lastUsed\": 1604596073193,\n            \"name\": \"\",\n            \"accountType\": \"\",\n            \"owner\": \"4a1f0e363b7f4ab5a69c146e5421c3f6\",\n            \"channel\": [\n                \"0003-1d123aeb5e1f4c56935df04da01033a2\"\n            ],\n            \"createdAt\": 1604596073193,\n            \"updatedAt\": 1604596073193\n        },\n        \"installation\": {\n            \"_id\": \"0002-3f6bac95cd564ad8be97208685c428fe\",\n            \"entityType\": \"installation\",\n            \"installationId\": \"c3e4fec5730849b592d184e14a569a4a\",\n            \"owner\": \"4a1f0e363b7f4ab5a69c146e5421c3f6\",\n            \"sessionId\": \"15d817ab478d684ab3c94ace4ce130037d62c2ca\",\n            \"deviceType\": \"WEB\",\n            \"deviceName\": \"chrome;chrome-67\",\n            \"cookieName\": \"SyncGatewaySession\",\n            \"expiresAt\": \"2080-04-05T22:44:49.137465705Z\",\n            \"channel\": [\n                \"admin+user+installations\",\n                \"4a1f0e363b7f4ab5a69c146e5421c3f6\"\n            ],\n            \"version\": \"0.0.1\",\n            \"createdAt\": 1614870640718,\n            \"updatedAt\": 1614870640718\n        },\n        \"businesses\": {\n            \"_id\": \"1006-2bdfe10b399d4a12b16e7bfde3736297\",\n            \"createdAt\": 1604596105725,\n            \"updatedAt\": 1614595185761,\n            \"_rev\": \"156-c41eb6b9828f4a55b844e4c096760bcd\",\n            \"name\": \"توسعه‌دهنده نیوو\",\n            \"channel\": null,\n            \"legal\": false,\n            \"countryId\": \"1001-1\",\n            \"provinceId\": \"1002-8\",\n            \"cityId\": \"1003-328\",\n            \"telephones\": [],\n            \"logoImg\": \"data:image/png;base64\"\n            \"currencyId\": \"1005-TOMAN\",\n            \"widgets\": [],\n            \"pin\": \"\",\n            \"lockTimeout\": 1,\n            \"owner\": \"4a1f0e363b7f4ab5a69c146e5421c3f6\",\n            \"lastEditorInstallationId\": \"0c9e2e1b660c4b72841e0ea3dac48e1a\"\n        }\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"result\": {\n        \"user\": {\n            \"entityType\": \"user\",\n            \"username\": \"4a1f0e363b7f4ab5a69c146e5421c3f6\",\n            \"phone\": \"9031212123\",\n            \"initialized\": true,\n            \"createdAt\": 1604596057690,\n            \"updatedAt\": 1614877730240\n        },\n        \"profile\": {\n            \"_id\": \"0003-1d123aeb5e1f4c56935df04da01033a2\",\n            \"name\": \"\",\n            \"createdAt\": 1604596073193,\n            \"updatedAt\": 1604596073193\n        },\n        \"installation\": {\n            \"_id\": \"0002-3f6bac95cd564ad8be97208685c428fe\",\n            \"entityType\": \"installation\",\n            \"installationId\": \"c3e4fec5730849b592d184e14a569a4a\",\n            \"owner\": \"4a1f0e363b7f4ab5a69c146e5421c3f6\",\n            \"sessionId\": \"15d817ab478d684ab3c94ace4ce130037d62c2ca\",\n            \"deviceType\": \"WEB\",\n            \"deviceName\": \"chrome;chrome-67\",\n            \"cookieName\": \"SyncGatewaySession\",\n            \"expiresAt\": \"2080-04-05T22:44:49.137465705Z\",\n            \"channel\": [\n                \"admin+user+installations\",\n                \"4a1f0e363b7f4ab5a69c146e5421c3f6\"\n            ],\n            \"version\": \"0.0.1\",\n            \"createdAt\": 1614870640718,\n            \"updatedAt\": 1614870640718\n        },\n        \"businesses\": {\n            \"_id\": \"1006-2bdfe10b399d4a12b16e7bfde3736297\",\n            \"createdAt\": 1604596105725,\n            \"updatedAt\": 1614595185761,\n            \"name\": \"توسعه‌دهنده نیوو\",\n            \"legal\": false,\n            \"telephones\": [],\n            \"logoImg\": \"data:image/png;base64\"\n            \"currencyId\": \"1005-TOMAN\",\n            \"widgets\": [],\n            \"pin\": \"\",\n        }\n    }\n}",
           "type": "json"
         }
       ]
     },
     "filename": "src/app/controller/user.controller.ts",
-    "groupTitle": "User"
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/users/login"
+      }
+    ]
   },
   {
     "type": "POST",
@@ -1314,11 +1314,6 @@ define({ "api": [
     "name": "RegisterUSer",
     "group": "User",
     "version": "1.0.0",
-    "sampleRequest": [
-      {
-        "url": "https://bfm.nivoapp.com/api/v1/register"
-      }
-    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1349,6 +1344,11 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/user.controller.ts",
-    "groupTitle": "User"
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/users/register"
+      }
+    ]
   }
 ] });
