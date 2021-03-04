@@ -1230,7 +1230,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/login",
+    "url": "/users/login",
     "title": "Login user",
     "name": "LoginUser",
     "group": "User",
@@ -1309,7 +1309,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/register",
+    "url": "/users/register",
     "title": "Register user",
     "name": "RegisterUSer",
     "group": "User",
