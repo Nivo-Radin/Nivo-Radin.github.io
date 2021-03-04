@@ -124,7 +124,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/business.controller.ts",
-    "groupTitle": "Business"
+    "groupTitle": "Business",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/business"
+      }
+    ]
   },
   {
     "type": "POST",
@@ -233,7 +238,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/customer.controller.ts",
-    "groupTitle": "Customer"
+    "groupTitle": "Customer",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/customer"
+      }
+    ]
   },
   {
     "type": "GET",
@@ -353,7 +363,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/customer.controller.ts",
-    "groupTitle": "Customer"
+    "groupTitle": "Customer",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/customer"
+      }
+    ]
   },
   {
     "type": "POST",
@@ -469,7 +484,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/product.controller.ts",
-    "groupTitle": "Product"
+    "groupTitle": "Product",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/product"
+      }
+    ]
   },
   {
     "type": "GET",
@@ -603,7 +623,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/product.controller.ts",
-    "groupTitle": "Product"
+    "groupTitle": "Product",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/product"
+      }
+    ]
   },
   {
     "type": "POST",
@@ -803,7 +828,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/invoice.controller.ts",
-    "groupTitle": "PurchaseInvoice"
+    "groupTitle": "PurchaseInvoice",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/purchase-invoice"
+      }
+    ]
   },
   {
     "type": "POST",
@@ -1031,7 +1061,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/invoice.controller.ts",
-    "groupTitle": "SaleInvoice"
+    "groupTitle": "SaleInvoice",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/sale-invoice"
+      }
+    ]
   },
   {
     "type": "GET",
@@ -1063,7 +1098,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/invoice.controller.ts",
-    "groupTitle": "SaleInvoice"
+    "groupTitle": "SaleInvoice",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/sale-invoice"
+      }
+    ]
   },
   {
     "type": "POST",
@@ -1144,7 +1184,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/transaction.controller.ts",
-    "groupTitle": "Transaction"
+    "groupTitle": "Transaction",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/transaction"
+      }
+    ]
   },
   {
     "type": "GET",
@@ -1176,7 +1221,12 @@ define({ "api": [
       ]
     },
     "filename": "src/app/controller/transaction.controller.ts",
-    "groupTitle": "Transaction"
+    "groupTitle": "Transaction",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/transaction"
+      }
+    ]
   },
   {
     "type": "POST",
