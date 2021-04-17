@@ -133,6 +133,250 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/cheque",
+    "title": "Create cheque",
+    "name": "CreateCheques",
+    "group": "Cheque",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>Cheque amount</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Cheque type, ['INCOME', 'EXPENSE']</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customerId",
+            "description": "<p>Customer id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "due",
+            "description": "<p>Cheque due timestamp</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "registredAt",
+            "description": "<p>Cheque registration timestamp</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "resourceId",
+            "description": "<p>Cheque resource id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chequeNo",
+            "description": "<p>Cheque number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "bankId",
+            "description": "<p>Cheque bank id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Cheque status, ['IN_PROGRESS', 'PASSED', 'FAILED', 'SPENT']</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "tags",
+            "description": "<p>List of cheque tags</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Cheque descriptions</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "\t{\n    \"amount\": 52000000,\n    \"type\": \"INCOME\",\n    \"customerId\": \"1011-59a4b4d9cf554b98aec1d775809d83e7\",\n    \"registeredAt\": 1612211400000,\n    \"due\": 1612221900000,\n    \"resourceId\": \"1008-001\",\n    \"chequeNo\": \"546\",\n    \"bankId\": \"16\",\n    \"status\": \"IN_PROGRESS\",\n    \"description\": \"description for cheque\",\n    \"tags\": [\n    \t\"tag2\",\n    \t\"tag1\"\n    ]\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/cheque.controller.ts",
+    "groupTitle": "Cheque",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/cheque"
+      }
+    ]
+  },
+  {
+    "type": "GET",
+    "url": "/cheque",
+    "title": "Get cheques",
+    "name": "GetCheques",
+    "group": "Cheque",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "cheques",
+            "description": "<p>List of cheques</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.id",
+            "description": "<p>Cheque id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "cheques.amount",
+            "description": "<p>Cheque amount</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.type",
+            "description": "<p>Cheque type, ['INCOME', 'EXPENSE']</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.customerId",
+            "description": "<p>Customer id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "cheques.registredAt",
+            "description": "<p>Cheque registration timestamp</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.resourceId",
+            "description": "<p>Cheque resource id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.chequeNo",
+            "description": "<p>Cheque number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.bankId",
+            "description": "<p>Cheque bank id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.status",
+            "description": "<p>Cheque status, ['IN_PROGRESS', 'PASSED', 'FAILED', 'SPENT']</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "cheques.tags",
+            "description": "<p>List of cheque tags</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "cheques.transactions",
+            "description": "<p>List of cheque transactions</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "cheques.description",
+            "description": "<p>Cheque descriptions</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\t{\n\t\t\"cheques\": [\n\t\t\t{\n       \"amount\": 52000000,\n       \"type\": \"INCOME\",\n       \"customerId\": \"1011-59a4b4d9cf554b98aec1d775809d83e7\",\n       \"registeredAt\": 1612211400000,\n       \"resourceId\": \"1008-001\",\n       \"chequeNo\": \"546\",\n       \"bankId\": \"16\",\n       \"status\": \"IN_PROGRESS\",\n       \"dueFaIR\": \"1399/11/26\",\n       \"registeredAtFaIR\": \"1399/11/14\",\n       \"transactions\": [\n           {\n               \"id\": \"2bdfe10b399d4a12b16e7bfde3736297\",\n               \"amount\": 150000,\n               \"date\": \"1399/12/06\",\n               \"type\": \"INCOME\"\n           }\n       ],\n\t\t\t\t\"description\": \"description for cheque\",\n\t\t\t\t\"tags\": [\n\t\t\t\t\t\"tag2\",\n\t\t\t\t\t\"tag1\"\n\t\t\t\t]\n\t\t\t},\n\t\t]\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/cheque.controller.ts",
+    "groupTitle": "Cheque",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/cheque"
+      }
+    ]
+  },
+  {
+    "type": "POST",
     "url": "/customer",
     "title": "Create customer",
     "name": "CreateCustomer",
@@ -823,6 +1067,43 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n\t{\n\t\t\"message\": \"ok\",\n\t\t\"id\": \"1009-6506499e4ffe4700a8227c2cd4defa17\",\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/app/controller/invoice.controller.ts",
+    "groupTitle": "PurchaseInvoice",
+    "sampleRequest": [
+      {
+        "url": "https://bfm.nivoapp.com/api/v1/purchase-invoice"
+      }
+    ]
+  },
+  {
+    "type": "GET",
+    "url": "/purchase-invoice",
+    "title": "Get purchase invoices",
+    "name": "GetPurchaseInvoices",
+    "group": "PurchaseInvoice",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "api-token",
+            "description": "<p>header, body or query param *</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"invoices\": [\n        {\n            \"acceptsOnlinePayment\": true,\n            \"chequeIds\": [],\n            \"code\": \"NSI-1003\",\n            \"createdAt\": 1613216820350,\n            \"dateEnUS\": \"2021/01/31\",\n            \"dateFaIR\": \"1399/11/12\",\n            \"description\": \"asd\",\n            \"format\": \"OFFICIAL\",\n            \"paidAmount\": 0,\n            \"paymentGatewayIds\": [],\n            \"paymentStatus\": \"COMPLETED\",\n            \"percentOff\": 2,\n            \"readOnly\": false,\n            \"scheme\": 4,\n            \"signatureVisibility\": true,\n            \"timestamp\": 1612038600000,\n            \"type\": \"NORMAL\",\n            \"updatedAt\": 1614172401347,\n            \"_id\": \"1012-18996fab88d54aeda0e1d2b640806b33\",\n            \"transactions\": [\n                {\n                    \"amount\": 150000,\n                    \"date\": \"1399/12/06\",\n                    \"type\": \"INCOME\"\n                }\n            ],\n            \"items\": [\n                {\n                    \"id\": \"1009-1ef10a242cde40afb16883db0aeeb024\",\n                    \"name\": \"sample_product\",\n                    \"barcodes\": [\n                        \"123\",\n                        \"321\"\n                    ],\n                    \"code\": \"sample_code\",\n                    \"image\": \"data:image/jpeg;base64...\",\n                    \"price\": 27250,\n                    \"tax\": 0.09,\n                    \"type\": \"SERVICE\",\n                    \"category\": \"sample_category\"\n                }\n            ],\n            \"customer\": \"sample customer\"\n        },\n\t  ]\n}",
           "type": "json"
         }
       ]
