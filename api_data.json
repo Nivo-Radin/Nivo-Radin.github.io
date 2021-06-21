@@ -699,7 +699,7 @@
             "type": "String",
             "optional": false,
             "field": "transactions.type",
-            "description": "<ul> <li>Transaction type ['INCOME', 'EXPENSE', 'TRANSFER']</li> </ul>"
+            "description": "<p>Transaction type ['INCOME', 'EXPENSE', 'TRANSFER']</p>"
           },
           {
             "group": "Parameter",
@@ -1648,7 +1648,7 @@
             "type": "String",
             "optional": false,
             "field": "type",
-            "description": "<ul> <li>Transaction type ['INCOME', 'EXPENSE', 'TRANSFER']</li> </ul>"
+            "description": "<p>Transaction type ['INCOME', 'EXPENSE', 'TRANSFER']</p>"
           },
           {
             "group": "Parameter",
